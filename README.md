@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digital Quran Application
 
-## Getting Started
+A modern web application for reading and listening to the Holy Quran, built with Next.js and TailwindCSS.
 
-First, run the development server:
+## Features
 
+- Browse through all 114 surahs of the Quran
+- Read Arabic text and Indonesian translations
+- Listen to audio recitations for each verse
+- Listen to complete surah recitations
+- Responsive design for all devices
+- Pagination for better navigation
+- Clean and intuitive user interface
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TailwindCSS
+- REST APIs:
+  - Santri Koding Quran API
+  - Quran.com API (for audio)
+
+## Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/quran-app.git
+cd quran-app
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── app/
+│   ├── page.tsx                # Home page with surah list
+│   ├── surah/
+│   │   └── [number]/
+│   │       └── page.tsx        # Individual surah page
+│   └── utils/
+│       └── api.ts             # API utilities
+├── components/                 # React components
+├── public/                    # Static files
+└── tailwind.config.js         # Tailwind configuration
+```
 
-## Learn More
+## API Integration
 
-To learn more about Next.js, take a look at the following resources:
+The application uses two main APIs:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Santri Koding Quran API
+   - Base URL: `https://quran-api.santrikoding.com/api`
+   - Endpoints:
+     - `/surah` - Get list of all surahs
+     - `/surah/{number}` - Get detailed surah information
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Quran.com API
+   - Used for audio recitations
+   - Base URL: `https://api.quran.com/api/v4`
+   - Endpoints:
+     - `/chapter_recitations/1/{number}` - Get complete surah audio
 
-## Deploy on Vercel
+## Features in Detail
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Home Page
+- Displays a grid of all surahs
+- Each surah card shows:
+  - Surah name in Arabic and Latin
+  - Translation
+  - Surah number
+  - Number of verses
+- Pagination with 20 surahs per page
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Surah Detail Page
+- Complete surah information
+- Arabic text with Indonesian translation
+- Individual verse audio players
+- Complete surah audio player
+- Verse numbers
+- Navigation back to home page
+
+## Styling
+
+The application uses TailwindCSS for styling with a consistent color scheme:
+- Primary color: Green (`bg-green-600`)
+- Text colors: White for contrast on green backgrounds
+- Card styling with shadows and hover effects
+- Responsive design for all screen sizes
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Santri Koding](https://santrikoding.com) for providing the Quran API
+- [Quran.com](https://quran.com) for the audio recitations API
+- The Next.js team for the amazing framework
